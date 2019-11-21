@@ -1,4 +1,15 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Dependencies:
+
+- NodeJs: https://nodejs.org/en/
+- yarn: https://yarnpkg.com/en/
+
+## Instalation:
+
+1. first install node and yarn
+2. follow these steps - insert commands in command line:
+- yarn
+- yarn build
+- yarn start
 
 ## Available Scripts
 
