@@ -7,9 +7,11 @@
 
 1. first install node and yarn
 2. follow these steps - insert commands in command line:
-- yarn
-- yarn build
-- yarn start
+```
+~ yarn
+~ yarn build
+~ yarn start
+```
 
 ## Available Scripts
 
