@@ -21,8 +21,8 @@ type TextProps = {
 };
 
 const createWpm = (value: number): Mark => ({
-  value,
-  label: valueToText(value)
+  value
+  // label: valueToText(value)
 });
 
 const valueToText = (value: number) => `${value} WPM`;
@@ -30,8 +30,10 @@ const valueToText = (value: number) => `${value} WPM`;
 const enhance = compose(connect(undefined, mapDispatchToProps));
 
 class Text extends Component<TextProps, TextState> {
-  minWpm = 100;
-  maxWpm = 1000;
+  minWpm = 200;
+  maxWpm = 700;
+  step = 100;
+  defaultWpm = 300;
 
   constructor(props: any) {
     super(props);
@@ -60,13 +62,17 @@ class Text extends Component<TextProps, TextState> {
   };
 
   handleButtonOnClick() {
+    if (this.state.text) {
+      this.props.setReader("", this.state.wpm);
+    }
+
     this.props.setReader(this.state.text, this.state.wpm);
   }
 
   wpms: Mark[] = [];
 
   initializeMarks() {
-    for (let i = this.minWpm; i <= this.maxWpm; i += 50) {
+    for (let i = this.minWpm; i <= this.maxWpm; i += this.step) {
       this.wpms.push(createWpm(i));
     }
   }
@@ -74,8 +80,7 @@ class Text extends Component<TextProps, TextState> {
   render() {
     const styles = {
       textarea: {
-        width: "100%",
-        height: "25vh"
+        width: "100%"
       }
     };
 
@@ -100,12 +105,12 @@ class Text extends Component<TextProps, TextState> {
               Adjust WPM (words per minute) speed
             </Typography>
             <Slider
-              defaultValue={this.wpms[0].value}
+              defaultValue={this.defaultWpm}
               getAriaValueText={valueToText}
               aria-labelledby="discrete-slider-always"
               max={this.maxWpm}
               min={this.minWpm}
-              step={50}
+              step={this.step}
               marks={this.wpms}
               valueLabelDisplay="on"
               onChange={this.handleSliderChange}

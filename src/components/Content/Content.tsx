@@ -23,10 +23,16 @@ export default function CenteredGrid() {
     <div className={classes.root}>
       <Grid container justify="center" alignItems="center" spacing={3}>
         <Grid item xs={10}>
-          <Text></Text>
+          <div
+            style={{
+              margin: "100px 0"
+            }}
+          >
+            <Reader></Reader>
+          </div>
         </Grid>
         <Grid item xs={10}>
-          <Reader></Reader>
+          <Text></Text>
         </Grid>
       </Grid>
     </div>
