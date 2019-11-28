@@ -90,6 +90,13 @@ class Reader extends Component<ReaderProps, ReaderState> {
     return (
       <div>
         <Word word={this.state.currentWord} />
+        sdfsdfsdfsdsfsdfsdsd
+        asd
+        <aside><aside>das
+          das
+          d
+          asd
+          <aside>das</aside></aside></aside>
       </div>
     );
   }
