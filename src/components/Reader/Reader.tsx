@@ -40,7 +40,7 @@ class Reader extends Component<ReaderProps, ReaderState> {
   }
 
   initWords(props: ReaderProps = this.props) {
-    this.setWords(props.text.split(" "));
+    this.setWords(props.text.split(/[\s\r\n]+?/gm).map(x => x.trim()).filter(x => x));
   }
 
   setWords(array: string[]) {
